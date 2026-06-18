@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rules - Code Injector</title>
+    <link rel="stylesheet" href="theme.css" />
+    <link rel="stylesheet" href="rules.css" />
+  </head>
+  <body>
+    <main class="container">
+      <div class="layout-wrapper">
+        <!-- Left Sidebar -->
+        <aside class="sidebar" id="rulesSidebar">
+          <div class="search-container">
+            <a href="create.html" class="create-rule-btn" title="Add a new rule">Add new rule</a>
+            <div class="search-input-wrapper">
+              <input
+                type="text"
+                id="searchInput"
+                class="search-input"
+                placeholder="Search rules..."
+                autocomplete="off"
+                title="Search and filter rules by name
+Type '/reset' and press 'Enter' to completely delete all rules created"
+              />
+              <button
+                id="clearSearchBtn"
+                class="clear-search-btn"
+                type="button"
+                aria-label="Clear search"
+                style="display: none;"
+                title="Clear search"
+              >
+                ×
+              </button>
+            </div>
+            <div id="selectionActions" class="selection-actions" style="display: none; justify-content: space-between;">
+              <button
+                id="deleteSelectedBtn"
+                class="selection-action-btn danger"
+                type="button"
+                title="Delete all selected rules"
+              >
+                Delete
+              </button>
+              <button
+                id="exportSelectedBtn"
+                class="selection-action-btn export"
+                type="button"
+                title="Export selected rules in a JSON file"
+              >
+                Export
+              </button>
+              <button id="selectAllBtn" class="selection-action-btn neutral" type="button" title="Select all visible rules">
+                Select all
+              </button>
+              <button id="deselectAllBtn" class="selection-action-btn neutral" type="button" title="Deselect all selected rules">
+                Deselect all
+              </button>
+            </div>
+          </div>
+          <div id="rulesList" class="rules-list" role="list"></div>
+          <div class="sidebar-footer">
+            <div class="import-export-buttons">
+              <button id="exportBtn" class="export-btn" type="button" disabled title="Export all rules created in a JSON file">Export</button>
+              <button id="importBtn" class="import-btn" type="button" title="Import rules from a JSON file">Import</button>
+            </div>
+          <input type="file" id="importFileInput" accept=".json" style="display: none;" />
+          <button id="settingsBtn" class="settings-btn secondary" type="button" title="Open extension settings">Settings</button>
+          </div>
+        </aside>
+        <div
+          id="sidebarResizeHandle"
+          class="sidebar-resize-handle"
+          role="separator"
+          aria-orientation="vertical"
+          aria-label="Resize rules sidebar"
+          title="Drag to resize sidebar"
+        ></div>
+
+        <!-- Right Content Area -->
+        <section class="content-area">
+          <div id="emptyState" class="empty-state">
+            <p>Select a rule from the sidebar to edit</p>
+          </div>
+          <div id="ruleEditor" class="rule-editor" style="display: none;">
+            <div class="save-controls">
+              <button id="deleteRule" class="delete" type="button" title="Delete this rule">Delete rule</button>
+              <button id="exportRule" class="secondary" type="button" title="Export this rule in a JSON file">Export rule</button>
+              <button id="saveAll" class="secondary" title="Your changes are autosaved. This button is for those who have the habbit of saving manually.">Save changes</button>
+            </div>
+            <div class="rule-name-row">
+              <label>
+                Rule name
+                <input
+                  id="editorRuleName"
+                  class="rule-name"
+                  type="text"
+                  maxlength="300"
+                  placeholder="ex: Change background color"
+                  title="Insert the name of the rule"
+                />
+              </label>
+            </div>
+            <label>
+              Rule URL
+              <input
+                id="editorRulePatterns"
+                class="rule-patterns"
+                type="text"
+                  maxlength="1600"
+                placeholder="ex: *://*.example.com/page*"
+                title="Insert the URL pattern to apply the rule, you can use * as a wildcard (ex: *://*.example.com/page*). Write * to apply the rule on every pages."
+              />
+            </label>
+            <div class="code-columns">
+              <label>
+                <div class="code-meta">
+                  <span class="chip js">JS</span>
+                </div>
+                <textarea
+                  id="editorRuleJs"
+                  class="rule-js code-input"
+                  placeholder="JavaScript code to inject..."
+                  title="Insert the JavaScript code to apply in the rule"
+                ></textarea>
+              </label>
+              <label>
+                <div class="code-meta">
+                  <span class="chip css">CSS</span>
+                </div>
+                <textarea
+                  id="editorRuleCss"
+                  class="rule-css code-input"
+                  placeholder="CSS code to inject..."
+                  title="Insert the CSS code to apply in the rule"
+                ></textarea>
+              </label>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <template id="ruleItemTemplate">
+      <button class="rule-item" type="button" role="listitem" data-id="">
+        <label class="rule-item-selector">
+          <input type="checkbox" class="rule-item-selector-input" />
+          <span class="selector-square"></span>
+        </label>
+        <span class="rule-item-name"></span>
+        <label class="rule-item-toggle">
+          <input type="checkbox" class="rule-item-toggle-input" />
+          <span class="switch">
+            <span></span>
+          </span>
+        </label>
+      </button>
+    </template>
+
+    <script type="module" src="rules.js"></script>
+  </body>
+</html>
+

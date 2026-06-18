@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Injector</title>
+    <link rel="stylesheet" href="theme.css" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="popup">
+      <header>
+        <div>
+          <h1>Code Injector</h1>
+          <p id="urlPreview">Loading current tab…</p>
+        </div>
+        <button id="addNewRule" title="Add a new rule on this page">Add new rule</button>
+      </header>
+
+      <section id="status" class="status">Checking rules…</section>
+
+      <ul id="rulesList" class="rules"></ul>
+
+      <footer>
+        <button id="openOptions" class="open-rules-btn" title="Open all rules created">
+          All rules
+        </button>
+      </footer>
+    </main>
+
+    <template id="ruleRow">
+      <li class="rule">
+        <span class="rule-name"></span>
+        <label class="switch">
+          <input type="checkbox" class="rule-toggle" title="Turn rule ON" />
+          <span></span>
+        </label>
+      </li>
+    </template>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Rule – Code Injector</title>
+    <link rel="stylesheet" href="theme.css" />
+    <link rel="stylesheet" href="create.css" />
+  </head>
+  <body>
+    <main class="container create-page">
+      <header>
+        <div>
+          <h1>Add a new rule</h1>
+        </div>
+        <nav class="page-nav">
+          <a href="rules.html" class="nav-link" title="Open all rules created" target="_blank">All rules</a>
+          <button type="submit" form="ruleForm" class="create-btn" title="Create a new rule">Create rule</button>
+        </nav>
+      </header>
+
+      <form id="ruleForm" class="create-form">
+        <div class="create-top">
+          <label>
+            Rule name
+            <input id="ruleName" type="text" required maxlength="300" placeholder="ex: Change background color" title="Insert the name of the rule" />
+          </label>
+
+          <label>
+            Rule URL
+            <input
+              id="rulePatterns"
+              type="text"
+              required
+              maxlength="1600"
+              placeholder="ex: *://*.example.com/page*"
+              title="Insert the URL pattern to apply the rule, you can use * as a wildcard (ex: *://*.example.com/page*). Write * to apply the rule on every pages."
+            />
+          </label>
+        </div>
+
+        <div class="create-bottom">
+          <div class="code-columns">
+            <label>
+              <div class="code-meta">
+                <span class="chip js">JS</span>
+              </div>
+              <textarea
+                id="ruleJs"
+                class="code-input"
+                placeholder="JavaScript code to inject..."
+                title="Insert the JavaScript code to apply in the rule"
+              ></textarea>
+            </label>
+
+            <label>
+              <div class="code-meta">
+                <span class="chip css">CSS</span>
+              </div>
+              <textarea
+                id="ruleCss"
+                class="code-input"
+                placeholder="CSS code to inject..."
+                title="Insert the CSS code to apply in the rule"
+              ></textarea>
+            </label>
+          </div>
+        </div>
+      </form>
+    </main>
+
+    <script type="module" src="create.js"></script>
+  </body>
+</html>
+

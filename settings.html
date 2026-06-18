@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings – Code Injector</title>
+    <link rel="stylesheet" href="theme.css" />
+    <link rel="stylesheet" href="settings.css" />
+  </head>
+  <body>
+    <main class="container settings-page">
+      <header class="settings-header">
+        <div>
+          <h1>Settings</h1>
+        </div>
+        <nav class="page-nav">
+          <a href="rules.html" class="nav-link" title="Back to all rules">All rules</a>
+        </nav>
+      </header>
+
+      <section class="settings-content">
+        <article class="settings-card">
+          <div class="settings-row">
+            <div class="setting-label">
+              <h3>Dark mode</h3>
+              <p>Use a darker color palette across the extension.</p>
+            </div>
+            <label class="rule-item-toggle settings-toggle">
+              <input
+                type="checkbox"
+                id="darkModeToggle"
+                class="rule-item-toggle-input"
+                aria-label="Toggle dark mode"
+                title="Toggle dark mode"
+              />
+              <span class="switch">
+                <span></span>
+              </span>
+            </label>
+          </div>
+          <div class="settings-row">
+            <div class="setting-label">
+              <h3>Import / Export rules</h3>
+              <p>Import rules from a JSON file or export all current rules into a JSON file.</p>
+            </div>
+            <div class="settings-actions">
+              <button
+                id="importRulesBtn"
+                class="secondary-btn"
+                type="button"
+                title="Import rules from backup"
+              >
+                Import
+              </button>
+              <button
+                id="exportRulesBtn"
+                class="secondary-btn"
+                type="button"
+                disabled
+                title="Export all rules"
+              >
+                Export
+              </button>
+            </div>
+          </div>
+          <div class="settings-row reset-row">
+            <div class="setting-label">
+              <h3>Reset extension</h3>
+              <p>Delete all rules permanently.</p>
+            </div>
+            <button
+              id="resetExtensionBtn"
+              class="danger-btn"
+              type="button"
+              title="Delete all rules"
+            >
+              Reset
+            </button>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script type="module" src="settings.js"></script>
+  </body>
+</html>
+
+
