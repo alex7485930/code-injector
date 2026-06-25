@@ -2,7 +2,7 @@
 
 ## Step 1: Download the Extension
 - Go to the [GitHub repository page](https://github.com/alex7485930/code-injector)
-- Click the green Code button → Download ZIP
+- Click the green "< > Code" button → Download ZIP
 - Extract the ZIP file to a folder on your computer where it will not move
 
 ## Step 2: Open Chrome Extensions Page
